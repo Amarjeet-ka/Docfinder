@@ -1,21 +1,35 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import HomeScreen from './screens/HomeScreens';
+import ProfileScren from './screens/ProfileScren';
+import RegisterScreen from './screens/RegisterScreen';
+import LoginScreen from './screens/LoginScreen';
+import NewhomeScreen from './screens/NewhomeScreen';
+import AppoinCnfScr from './screens/AthenticateScreen';
+import ClientProfileScreen from './screens/ClientProfileScreen';
+
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+      
+    <NavigationContainer>
+      <Stack.Navigator>
+    
+        <Stack.Screen name="Home" component={HomeScreen}  options={{ headerShown: false }} />
+        <Stack.Screen name="profile" component={ProfileScren} options={{headerShown: false}} />
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+        <Stack.Screen name="rn" component={RegisterScreen} options={{headerShown: false}} />
+
+        <Stack.Screen name="ln" component={LoginScreen} options={{headerShown: false}} />
+        <Stack.Screen name="newhome" component={NewhomeScreen} options={{headerShown: false}} />
+        <Stack.Screen name="auth" component={AppoinCnfScr} options={{headerShown: false}} />
+        <Stack.Screen name='Client' component={ClientProfileScreen} options={{headerShown: false}} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+
